@@ -1,10 +1,19 @@
-/* =========================
+/*==================================================
 
 THE HIDDEN CHRIST
-
 Bradley Hobbs
 
-========================= */
+PART 1
+Foundation • Reset • Typography • Navigation • Hero
+
+==================================================*/
+
+
+/*==================================================
+
+ROOT
+
+==================================================*/
 
 :root{
 
@@ -16,21 +25,27 @@ Bradley Hobbs
 --white:#ffffff;
 
 --text:#2d2926;
---light-text:#f7f6f3;
+--light:#f7f6f3;
 
---max-width:760px;
+--content-width:760px;
+--wide-width:1300px;
 
---transition:.6s ease;
+--radius:2px;
+
+--transition:.45s ease;
 
 }
 
-/* =========================
+
+/*==================================================
 
 RESET
 
-========================= */
+==================================================*/
 
-*{
+*,
+*::before,
+*::after{
 
 margin:0;
 padding:0;
@@ -52,19 +67,27 @@ color:var(--text);
 
 font-family:"Lora",serif;
 
-font-size:1.15rem;
+font-size:1.125rem;
 
-line-height:1.9;
+line-height:2;
+
+letter-spacing:.01em;
 
 overflow-x:hidden;
 
+text-rendering:optimizeLegibility;
+
+-webkit-font-smoothing:antialiased;
+
+-moz-osx-font-smoothing:grayscale;
+
 }
 
-/* =========================
+main{
 
-IMAGES
+overflow:hidden;
 
-========================= */
+}
 
 img{
 
@@ -74,29 +97,80 @@ width:100%;
 
 height:auto;
 
+border-radius:var(--radius);
+
 }
-
-/* =========================
-
-LINKS
-
-========================= */
 
 a{
 
-text-decoration:none;
-
 color:inherit;
+
+text-decoration:none;
 
 transition:var(--transition);
 
 }
 
-/* =========================
+::selection{
+
+background:var(--sand);
+
+color:var(--white);
+
+}
+
+
+/*==================================================
+
+TYPOGRAPHY
+
+==================================================*/
+
+h1,
+h2,
+h3,
+.logo{
+
+font-family:"Cormorant Garamond",serif;
+
+font-weight:500;
+
+line-height:1.1;
+
+}
+
+h1{
+
+font-size:5rem;
+
+letter-spacing:.04em;
+
+}
+
+h2{
+
+font-size:3.5rem;
+
+}
+
+h3{
+
+font-size:2.5rem;
+
+}
+
+p{
+
+max-width:var(--content-width);
+
+}
+
+
+/*==================================================
 
 HEADER
 
-========================= */
+==================================================*/
 
 .site-header{
 
@@ -110,17 +184,29 @@ width:100%;
 
 z-index:1000;
 
-padding:30px 8vw;
+padding:28px 8vw;
 
-background:rgba(250,248,244,.15);
+background:rgba(250,248,244,.12);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(16px);
 
-transition:var(--transition);
+transition:.5s ease;
+
+}
+
+.site-header.scrolled{
+
+background:rgba(250,248,244,.94);
+
+padding:20px 8vw;
 
 }
 
 .navigation{
+
+max-width:1500px;
+
+margin:auto;
 
 display:flex;
 
@@ -132,13 +218,9 @@ align-items:center;
 
 .logo{
 
-font-family:"Cormorant Garamond",serif;
-
 font-size:2rem;
 
-letter-spacing:2px;
-
-font-weight:600;
+letter-spacing:.08em;
 
 }
 
@@ -146,1181 +228,27 @@ font-weight:600;
 
 display:flex;
 
-gap:40px;
+gap:42px;
 
-font-size:.95rem;
+font-size:.85rem;
 
-letter-spacing:1px;
+letter-spacing:.18em;
 
 text-transform:uppercase;
+
+}
+
+.navigation-links a{
+
+position:relative;
+
+opacity:.85;
 
 }
 
 .navigation-links a:hover{
 
-opacity:.6;
-
-}
-
-/* =========================
-
-HERO
-
-========================= */
-
-.hero{
-
-height:100vh;
-
-background:url("images/hero.webp") center center/cover no-repeat;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-position:relative;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:linear-gradient(
-
-rgba(30,30,30,.35),
-
-rgba(30,30,30,.15),
-
-rgba(250,248,244,.15)
-
-);
-
-}
-
-.hero-overlay{
-
-position:relative;
-
-z-index:2;
-
-text-align:center;
-
-padding:40px;
-
-color:var(--light-text);
-
-max-width:800px;
-
-}
-
-.hero h1{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:5rem;
-
-font-weight:500;
-
-letter-spacing:2px;
-
-margin-bottom:25px;
-
-}
-
-.hero p{
-
-font-size:1.35rem;
-
-opacity:.95;
-
-margin-bottom:60px;
-
-}
-
-.scroll-link{
-
-display:inline-block;
-
-font-size:.95rem;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-padding-bottom:6px;
-
-border-bottom:1px solid rgba(255,255,255,.5);
-
-}
-
-.scroll-link:hover{
-
-opacity:.7;
-
-}
-
-/* =========================
-
-SECTIONS
-
-========================= */
-
-section{
-
-padding:140px 8vw;
-
-}
-
-.section-heading{
-
-text-align:center;
-
-margin-bottom:90px;
-
-}
-
-.section-heading span{
-
-display:block;
-
-text-transform:uppercase;
-
-letter-spacing:4px;
-
-font-size:.8rem;
-
-color:var(--stone);
-
-margin-bottom:18px;
-
-}
-
-.section-heading h2{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:3.4rem;
-
-font-weight:500;
-
-}
-
-/* =========================
-
-JOURNEY
-
-========================= */
-
-.chapter{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:90px;
-
-align-items:center;
-
-margin-bottom:180px;
-
-}
-
-.chapter:nth-child(even){
-
-direction:rtl;
-
-}
-
-.chapter:nth-child(even) .chapter-content{
-
-direction:ltr;
-
-}
-
-.chapter-image{
-
-overflow:hidden;
-
-}
-
-.chapter-image img{
-
-transition:1.5s ease;
-
-}
-
-.chapter:hover img{
-
-transform:scale(1.03);
-
-}
-
-.chapter-content{
-
-max-width:560px;
-
-}
-
-.chapter-content h3{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:2.5rem;
-
-font-weight:500;
-
-margin-bottom:35px;
-
-}
-
-.chapter-content p{
-
-margin-bottom:35px;
-
-}
-
-.chapter-content a{
-
-font-size:.9rem;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-border-bottom:1px solid var(--sand);
-
-padding-bottom:6px;
-
-}
-
-/* =========================
-
-BOOK
-
-========================= */
-
-.book-layout{
-
-display:grid;
-
-grid-template-columns:420px 1fr;
-
-gap:100px;
-
-align-items:center;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-.book-cover{
-
-max-width:420px;
-
-}
-
-.book-text{
-
-max-width:600px;
-
-}
-
-.book-text a{
-
-display:inline-block;
-
-margin-top:40px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-border-bottom:1px solid var(--sand);
-
-padding-bottom:6px;
-
-}
-
-/* =========================
-
-AUTHOR
-
-========================= */
-
-.author-layout{
-
-display:grid;
-
-grid-template-columns:320px 1fr;
-
-gap:80px;
-
-align-items:center;
-
-max-width:1100px;
-
-margin:auto;
-
-}
-
-.author-layout img{
-
-border-radius:2px;
-
-}
-
-/* =========================
-
-CONTACT
-
-========================= */
-
-form{
-
-max-width:760px;
-
-margin:auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:30px;
-
-}
-
-input,
-
-textarea{
-
-background:transparent;
-
-border:none;
-
-border-bottom:1px solid #cfc6b7;
-
-padding:18px 0;
-
-font-family:"Lora",serif;
-
-font-size:1rem;
-
-color:var(--text);
-
-outline:none;
-
-}
-
-button{
-
-width:220px;
-
-padding:18px;
-
-background:none;
-
-border:1px solid var(--sand);
-
-cursor:pointer;
-
-font-family:"Lora",serif;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-transition:var(--transition);
-
-}
-
-button:hover{
-
-background:var(--sand);
-
-color:white;
-
-}
-
-/* =========================
-
-FOOTER
-
-========================= */
-
-footer{
-
-padding:120px 40px;
-
-text-align:center;
-
-background:var(--earth);
-
-color:var(--light-text);
-
-}
-
-footer p{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:2.3rem;
-
-margin-bottom:20px;
-
-}
-
-footer span{
-
-opacity:.8;
-
-}
-
-/* =========================
-
-RESPONSIVE
-
-========================= */
-
-@media(max-width:900px){
-
-.hero h1{
-
-font-size:3.3rem;
-
-}
-
-.navigation-links{
-
-display:none;
-
-}
-
-.chapter,
-
-.book-layout,
-
-.author-layout{
-
-grid-template-columns:1fr;
-
-gap:60px;
-
-}
-
-.chapter:nth-child(even){
-
-direction:ltr;
-
-}
-
-.section-heading h2{
-
-font-size:2.5rem;
-
-}
-
-section{
-
-padding:100px 30px;
-
-}
-
-}
-
-/* =========================
-
-SCROLL STATES
-
-========================= */
-
-.site-header.scrolled{
-
-background:rgba(250,248,244,.92);
-
-backdrop-filter:blur(20px);
-
-padding:22px 8vw;
-
-}
-
-.navigation-links a.active{
-
-opacity:.55;
-
-}
-
-.section-heading,
-
-.chapter,
-
-.book-layout,
-
-.author-layout,
-
-.contact form{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:
-
-opacity 1s ease,
-
-transform 1s ease;
-
-}
-
-.visible{
-
 opacity:1;
-
-transform:translateY(0);
-
-}
-
-.scroll-link.pulse{
-
-opacity:.45;
-
-}
-
-button.success{
-
-background:var(--sand);
-
-color:white;
-
-}
-
-/*==================================================
-
-RESPONSIVE
-
-The Hidden Christ
-
-==================================================*/
-
-
-/*====================
-
-1400px
-
-====================*/
-
-@media (max-width:1400px){
-
-.hero h1{
-
-font-size:4.5rem;
-
-}
-
-.chapter{
-
-gap:70px;
-
-}
-
-.book-layout{
-
-gap:80px;
-
-}
-
-}
-
-
-/*====================
-
-1100px
-
-====================*/
-
-@media (max-width:1100px){
-
-.navigation{
-
-padding:0;
-
-}
-
-.navigation-links{
-
-gap:24px;
-
-font-size:.85rem;
-
-}
-
-.hero h1{
-
-font-size:4rem;
-
-}
-
-.hero p{
-
-font-size:1.2rem;
-
-}
-
-.chapter{
-
-grid-template-columns:1fr;
-
-gap:60px;
-
-margin-bottom:140px;
-
-}
-
-.chapter:nth-child(even){
-
-direction:ltr;
-
-}
-
-.chapter-content{
-
-max-width:100%;
-
-}
-
-.book-layout{
-
-grid-template-columns:1fr;
-
-gap:70px;
-
-text-align:center;
-
-}
-
-.book-cover{
-
-margin:auto;
-
-max-width:360px;
-
-}
-
-.book-text{
-
-margin:auto;
-
-}
-
-.author-layout{
-
-grid-template-columns:1fr;
-
-gap:60px;
-
-text-align:center;
-
-}
-
-.author-layout img{
-
-max-width:320px;
-
-margin:auto;
-
-}
-
-}
-
-
-/*====================
-
-900px
-
-====================*/
-
-@media (max-width:900px){
-
-.site-header{
-
-padding:24px 30px;
-
-}
-
-.navigation{
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-.navigation-links{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:18px;
-
-}
-
-.hero{
-
-padding:40px;
-
-}
-
-.hero-overlay{
-
-padding:20px;
-
-}
-
-.hero h1{
-
-font-size:3.3rem;
-
-line-height:1.05;
-
-}
-
-.hero p{
-
-font-size:1.05rem;
-
-margin-bottom:40px;
-
-}
-
-section{
-
-padding:100px 30px;
-
-}
-
-.section-heading{
-
-margin-bottom:70px;
-
-}
-
-.section-heading h2{
-
-font-size:2.7rem;
-
-}
-
-.chapter-content h3{
-
-font-size:2.2rem;
-
-}
-
-body{
-
-font-size:1.05rem;
-
-}
-
-}
-
-
-/*====================
-
-700px
-
-====================*/
-
-@media (max-width:700px){
-
-.hero{
-
-min-height:100vh;
-
-}
-
-.hero h1{
-
-font-size:2.8rem;
-
-}
-
-.hero p{
-
-font-size:1rem;
-
-}
-
-.logo{
-
-font-size:1.6rem;
-
-text-align:center;
-
-}
-
-.navigation-links{
-
-display:none;
-
-}
-
-.section-heading span{
-
-letter-spacing:2px;
-
-}
-
-.section-heading h2{
-
-font-size:2.3rem;
-
-}
-
-.chapter{
-
-margin-bottom:110px;
-
-}
-
-.chapter-content h3{
-
-font-size:2rem;
-
-margin-bottom:24px;
-
-}
-
-.chapter-content p{
-
-margin-bottom:24px;
-
-}
-
-.book-cover{
-
-max-width:300px;
-
-}
-
-.author-layout img{
-
-max-width:260px;
-
-}
-
-input,
-
-textarea{
-
-font-size:1rem;
-
-}
-
-button{
-
-width:100%;
-
-}
-
-footer{
-
-padding:90px 30px;
-
-}
-
-footer p{
-
-font-size:2rem;
-
-}
-
-}
-
-
-/*====================
-
-500px
-
-====================*/
-
-@media (max-width:500px){
-
-html{
-
-font-size:15px;
-
-}
-
-.hero{
-
-padding:20px;
-
-}
-
-.hero h1{
-
-font-size:2.3rem;
-
-letter-spacing:1px;
-
-}
-
-.hero p{
-
-font-size:.95rem;
-
-max-width:280px;
-
-margin:auto auto 36px;
-
-}
-
-section{
-
-padding:80px 22px;
-
-}
-
-.section-heading{
-
-margin-bottom:55px;
-
-}
-
-.section-heading h2{
-
-font-size:2rem;
-
-}
-
-.chapter{
-
-gap:36px;
-
-margin-bottom:90px;
-
-}
-
-.chapter-content h3{
-
-font-size:1.8rem;
-
-}
-
-.book-layout{
-
-gap:50px;
-
-}
-
-.author-layout{
-
-gap:45px;
-
-}
-
-.contact form{
-
-gap:22px;
-
-}
-
-footer{
-
-padding:70px 20px;
-
-}
-
-}
-
-
-/*====================
-
-375px
-
-====================*/
-
-@media (max-width:375px){
-
-.hero h1{
-
-font-size:2rem;
-
-}
-
-.hero p{
-
-font-size:.9rem;
-
-}
-
-.logo{
-
-font-size:1.4rem;
-
-}
-
-.section-heading h2{
-
-font-size:1.7rem;
-
-}
-
-.chapter-content h3{
-
-font-size:1.6rem;
-
-}
-
-body{
-
-line-height:1.8;
-
-}
-
-}
-
-/*==================================================
-
-ANIMATIONS
-
-The Hidden Christ
-
-==================================================*/
-
-/*------------------------------
-
-Global
-
-------------------------------*/
-
-*{
-
-transition:
-
-color .35s ease,
-
-background-color .35s ease,
-
-border-color .35s ease;
-
-}
-
-
-/*------------------------------
-
-Hero
-
-------------------------------*/
-
-.hero{
-
-animation:
-
-heroFade 2.2s ease forwards;
-
-}
-
-.hero-overlay{
-
-opacity:0;
-
-transform:translateY(30px);
-
-animation:
-
-heroContent 1.8s ease .4s forwards;
-
-}
-
-
-/*------------------------------
-
-Section Reveal
-
-------------------------------*/
-
-.section-heading,
-
-.chapter,
-
-.book-layout,
-
-.author-layout,
-
-.contact form{
-
-opacity:0;
-
-transform:
-
-translateY(70px);
-
-transition:
-
-opacity 1.2s ease,
-
-transform 1.2s ease;
-
-}
-
-.visible{
-
-opacity:1;
-
-transform:
-
-translateY(0);
-
-}
-
-
-/*------------------------------
-
-Images
-
-------------------------------*/
-
-.chapter-image{
-
-overflow:hidden;
-
-}
-
-.chapter-image img{
-
-transition:
-
-transform 8s ease;
-
-}
-
-.chapter:hover img{
-
-transform:scale(1.05);
-
-}
-
-
-/*------------------------------
-
-Navigation
-
-------------------------------*/
-
-.navigation-links a{
-
-position:relative;
 
 }
 
@@ -1340,75 +268,489 @@ height:1px;
 
 background:var(--sand);
 
-transition:.5s ease;
+transition:.45s ease;
 
 }
 
-.navigation-links a:hover::after{
+.navigation-links a:hover::after,
+
+.navigation-links a.active::after{
 
 width:100%;
 
 }
 
 
-/*------------------------------
+/*==================================================
 
-Buttons
+HERO
 
-------------------------------*/
+==================================================*/
 
-.scroll-link,
+.hero{
 
-.chapter-content a,
+min-height:100vh;
 
-.book-text a{
+display:flex;
+
+justify-content:center;
+
+align-items:center;
 
 position:relative;
 
+background:
+
+url("./images/hero.webp")
+
+center center/
+
+cover
+
+no-repeat;
+
 }
 
-.scroll-link::after,
-
-.chapter-content a::after,
-
-.book-text a::after{
+.hero::before{
 
 content:"";
 
 position:absolute;
 
-bottom:-6px;
+inset:0;
 
-left:0;
+background:
 
-width:0;
+linear-gradient(
 
-height:1px;
+rgba(15,15,15,.28),
 
-background:currentColor;
+rgba(15,15,15,.12),
 
-transition:.6s ease;
+rgba(243,239,231,.08)
 
-}
-
-.scroll-link:hover::after,
-
-.chapter-content a:hover::after,
-
-.book-text a:hover::after{
-
-width:100%;
+);
 
 }
 
+.hero-overlay{
 
-/*------------------------------
+position:relative;
 
-Footer
+z-index:2;
 
-------------------------------*/
+text-align:center;
+
+padding:40px;
+
+max-width:900px;
+
+color:var(--light);
+
+}
+
+.hero h1{
+
+margin-bottom:24px;
+
+}
+
+.hero p{
+
+font-size:1.3rem;
+
+margin:auto;
+
+max-width:620px;
+
+margin-bottom:60px;
+
+opacity:.95;
+
+}
+
+.scroll-link{
+
+display:inline-block;
+
+font-size:.9rem;
+
+letter-spacing:.25em;
+
+text-transform:uppercase;
+
+padding-bottom:8px;
+
+border-bottom:1px solid rgba(255,255,255,.45);
+
+animation:floatArrow 3s ease infinite;
+
+}
+
+.scroll-link:hover{
+
+opacity:.75;
+
+}
+
+
+/*==================================================
+
+GLOBAL SECTIONS
+
+==================================================*/
+
+section{
+
+padding:170px 8vw;
+
+}
+
+.section-heading{
+
+text-align:center;
+
+margin-bottom:90px;
+
+}
+
+.section-heading span{
+
+display:block;
+
+font-size:.8rem;
+
+letter-spacing:.35em;
+
+text-transform:uppercase;
+
+color:var(--stone);
+
+margin-bottom:18px;
+
+}
+
+.section-heading h2{
+
+margin:auto;
+
+}
+
+
+/*==================================================
+
+REVEAL
+
+==================================================*/
+
+.section-heading,
+.chapter,
+.book-layout,
+.author-layout{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:
+
+opacity 1s ease,
+
+transform 1s ease;
+
+}
+
+.visible{
+
+opacity:1;
+
+transform:none;
+
+}
+
+
+/*==================================================
+
+ANIMATIONS
+
+==================================================*/
+
+@keyframes floatArrow{
+
+0%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:translateY(10px);
+
+opacity:.6;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+
+/*==================================================
+
+THE HIDDEN CHRIST
+Bradley Hobbs
+
+PART 2
+Journey • Book • Author • Footer • Responsive
+
+==================================================*/
+
+
+/*==================================================
+
+JOURNEY
+
+==================================================*/
+
+.chapter{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+gap:90px;
+
+max-width:var(--wide-width);
+
+margin:0 auto 180px;
+
+}
+
+.chapter:last-child{
+
+margin-bottom:0;
+
+}
+
+.chapter:nth-child(even){
+
+direction:rtl;
+
+}
+
+.chapter:nth-child(even) .chapter-content{
+
+direction:ltr;
+
+}
+
+.chapter-image{
+
+overflow:hidden;
+
+border-radius:var(--radius);
+
+background:var(--linen);
+
+}
+
+.chapter-image img{
+
+aspect-ratio:4/5;
+
+object-fit:cover;
+
+transition:
+
+filter .8s ease,
+
+transform 6s ease;
+
+}
+
+.chapter:hover img{
+
+filter:brightness(1.05);
+
+transform:scale(1.02);
+
+}
+
+.chapter-content{
+
+max-width:600px;
+
+}
+
+.chapter-content h3{
+
+margin-bottom:30px;
+
+}
+
+.chapter-content p{
+
+margin-bottom:36px;
+
+color:var(--stone);
+
+}
+
+.chapter-content a{
+
+display:inline-block;
+
+font-size:.85rem;
+
+letter-spacing:.20em;
+
+text-transform:uppercase;
+
+padding-bottom:8px;
+
+border-bottom:1px solid var(--sand);
+
+}
+
+.chapter-content a:hover{
+
+letter-spacing:.24em;
+
+}
+
+
+/*==================================================
+
+BOOK
+
+==================================================*/
+
+.book-layout{
+
+display:grid;
+
+grid-template-columns:420px 1fr;
+
+align-items:center;
+
+gap:100px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.book-cover{
+
+max-width:420px;
+
+margin:auto;
+
+}
+
+.book-cover img{
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.08);
+
+}
+
+.book-text{
+
+max-width:600px;
+
+}
+
+.book-text p{
+
+margin-bottom:40px;
+
+color:var(--stone);
+
+}
+
+.book-text a{
+
+display:inline-block;
+
+font-size:.85rem;
+
+letter-spacing:.20em;
+
+text-transform:uppercase;
+
+padding-bottom:8px;
+
+border-bottom:1px solid var(--sand);
+
+}
+
+
+/*==================================================
+
+AUTHOR
+
+==================================================*/
+
+.author-layout{
+
+display:grid;
+
+grid-template-columns:320px 1fr;
+
+gap:90px;
+
+align-items:center;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.author-layout img{
+
+aspect-ratio:1/1;
+
+object-fit:cover;
+
+}
+
+.author-layout p{
+
+color:var(--stone);
+
+}
+
+
+/*==================================================
+
+FOOTER
+
+==================================================*/
 
 footer{
+
+padding:160px 30px 100px;
+
+background:var(--earth);
+
+color:var(--light);
+
+text-align:center;
 
 position:relative;
 
@@ -1440,91 +782,260 @@ pointer-events:none;
 
 }
 
+footer p{
 
-/*------------------------------
+font-family:"Cormorant Garamond",serif;
 
-Scroll Indicator
+font-size:2rem;
 
-------------------------------*/
+font-weight:400;
 
-.scroll-link{
+letter-spacing:.05em;
 
-animation:
+margin:0;
 
-floatArrow 3s ease infinite;
+opacity:.95;
 
 }
 
 
 /*==================================================
 
-KEYFRAMES
+RESPONSIVE
 
 ==================================================*/
 
-@keyframes heroFade{
+@media(max-width:1200px){
 
-from{
+.chapter{
 
-opacity:.4;
-
-transform:scale(1.03);
+gap:70px;
 
 }
 
-to{
+.book-layout{
 
-opacity:1;
-
-transform:scale(1);
+gap:70px;
 
 }
 
 }
 
-@keyframes heroContent{
 
-from{
+@media(max-width:1000px){
 
-opacity:0;
+.chapter,
 
-transform:translateY(30px);
+.book-layout,
 
-}
+.author-layout{
 
-to{
+grid-template-columns:1fr;
 
-opacity:1;
+gap:60px;
 
-transform:translateY(0);
-
-}
+text-align:center;
 
 }
 
-@keyframes floatArrow{
+.chapter:nth-child(even){
 
-0%{
-
-transform:translateY(0);
-
-opacity:1;
+direction:ltr;
 
 }
 
-50%{
+.chapter-content,
 
-transform:translateY(10px);
+.book-text{
 
-opacity:.6;
+margin:auto;
+
+max-width:700px;
 
 }
 
-100%{
+.author-layout img{
 
-transform:translateY(0);
+max-width:320px;
 
-opacity:1;
+margin:auto;
+
+}
+
+}
+
+
+@media(max-width:800px){
+
+.site-header{
+
+padding:22px 30px;
+
+}
+
+.navigation{
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.navigation-links{
+
+gap:18px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.logo{
+
+font-size:1.7rem;
+
+}
+
+.hero h1{
+
+font-size:3.4rem;
+
+}
+
+.hero p{
+
+font-size:1.05rem;
+
+margin-bottom:42px;
+
+}
+
+section{
+
+padding:120px 30px;
+
+}
+
+.section-heading{
+
+margin-bottom:70px;
+
+}
+
+.section-heading h2{
+
+font-size:2.7rem;
+
+}
+
+h3{
+
+font-size:2rem;
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.navigation-links{
+
+display:none;
+
+}
+
+.hero{
+
+padding:20px;
+
+}
+
+.hero-overlay{
+
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:2.6rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+max-width:320px;
+
+}
+
+section{
+
+padding:90px 22px;
+
+}
+
+.chapter{
+
+gap:40px;
+
+margin-bottom:100px;
+
+}
+
+.book-layout{
+
+gap:50px;
+
+}
+
+.author-layout{
+
+gap:45px;
+
+}
+
+footer{
+
+padding:120px 20px 80px;
+
+}
+
+footer p{
+
+font-size:1.7rem;
+
+}
+
+}
+
+
+@media(max-width:400px){
+
+.hero h1{
+
+font-size:2.2rem;
+
+}
+
+.section-heading h2{
+
+font-size:2rem;
+
+}
+
+h3{
+
+font-size:1.7rem;
+
+}
+
+body{
+
+font-size:1rem;
 
 }
 
