@@ -635,3 +635,69 @@ padding:100px 30px;
 }
 
 }
+
+/* =========================
+
+SCROLL STATES
+
+========================= */
+
+.site-header.scrolled{
+
+background:rgba(250,248,244,.92);
+
+backdrop-filter:blur(20px);
+
+padding:22px 8vw;
+
+}
+
+.navigation-links a.active{
+
+opacity:.55;
+
+}
+
+.section-heading,
+
+.chapter,
+
+.book-layout,
+
+.author-layout,
+
+.contact form{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:
+
+opacity 1s ease,
+
+transform 1s ease;
+
+}
+
+.visible{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.scroll-link.pulse{
+
+opacity:.45;
+
+}
+
+button.success{
+
+background:var(--sand);
+
+color:white;
+
+}
