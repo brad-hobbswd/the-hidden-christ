@@ -14,8 +14,6 @@ const sections=document.querySelectorAll("section");
 
 const navigation=document.querySelectorAll(".navigation-links a");
 
-const form=document.querySelector("form");
-
 const hero=document.querySelector(".hero");
 
 /* ===================================
@@ -150,7 +148,7 @@ document
 
 .querySelectorAll(
 
-".section-heading,.chapter,.book-layout,.author-layout,.contact form"
+".section-heading,.chapter,.book-layout,.author-layout"
 
 )
 
@@ -199,48 +197,6 @@ block:"start"
 );
 
 });
-
-/* ===================================
-
-CONTACT FORM
-
-=================================== */
-
-if(form){
-
-form.addEventListener(
-
-"submit",
-
-event=>{
-
-event.preventDefault();
-
-const button=form.querySelector("button");
-
-button.textContent="Message Sent";
-
-button.disabled=true;
-
-button.classList.add("success");
-
-setTimeout(()=>{
-
-button.textContent="Send";
-
-button.disabled=false;
-
-button.classList.remove("success");
-
-form.reset();
-
-},3000);
-
-}
-
-);
-
-}
 
 /* ===================================
 
