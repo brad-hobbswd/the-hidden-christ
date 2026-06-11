@@ -14,11 +14,9 @@ const sections=document.querySelectorAll("section");
 
 const navigation=document.querySelectorAll(".navigation-links a");
 
-const revealElements=document.querySelectorAll(
+const form=document.querySelector("form");
 
-".chapter,.book-layout,.author-layout,.contact form,.section-heading"
-
-);
+const hero=document.querySelector(".hero");
 
 /* ===================================
 
@@ -28,35 +26,15 @@ HEADER
 
 function updateHeader(){
 
-if(window.scrollY>80){
+header.classList.toggle(
 
-header.classList.add("scrolled");
+"scrolled",
 
-}
-
-else{
-
-header.classList.remove("scrolled");
-
-}
-
-}
-
-updateHeader();
-
-window.addEventListener(
-
-"scroll",
-
-updateHeader,
-
-{
-
-passive:true
-
-}
+window.scrollY>80
 
 );
+
+}
 
 /* ===================================
 
@@ -70,13 +48,13 @@ let current="";
 
 sections.forEach(section=>{
 
-const top=section.offsetTop-180;
+if(
 
-const height=section.offsetHeight;
+window.scrollY>=section.offsetTop-180
 
-if(window.scrollY>=top){
+){
 
-current=section.getAttribute("id");
+current=section.id;
 
 }
 
@@ -84,29 +62,47 @@ current=section.getAttribute("id");
 
 navigation.forEach(link=>{
 
-link.classList.remove("active");
+link.classList.toggle(
 
-if(
+"active",
 
 link.getAttribute("href")==="#" + current
 
-){
-
-link.classList.add("active");
-
-}
+);
 
 });
 
 }
 
+/* ===================================
+
+SCROLL EVENTS
+
+=================================== */
+
+function handleScroll(){
+
+updateHeader();
+
 updateNavigation();
+
+if(hero){
+
+hero.style.backgroundPositionY=
+
+window.pageYOffset*.35+"px";
+
+}
+
+}
+
+handleScroll();
 
 window.addEventListener(
 
 "scroll",
 
-updateNavigation,
+handleScroll,
 
 {
 
@@ -132,6 +128,8 @@ if(entry.isIntersecting){
 
 entry.target.classList.add("visible");
 
+observer.unobserve(entry.target);
+
 }
 
 });
@@ -140,17 +138,23 @@ entry.target.classList.add("visible");
 
 {
 
-threshold:.15
+threshold:.18,
+
+rootMargin:"0px 0px -80px 0px"
 
 }
 
 );
 
-revealElements.forEach(element=>{
+document
 
-observer.observe(element);
+.querySelectorAll(
 
-});
+".section-heading,.chapter,.book-layout,.author-layout,.contact form"
+
+)
+
+.forEach(item=>observer.observe(item));
 
 /* ===================================
 
@@ -158,19 +162,17 @@ SMOOTH INTERNAL LINKS
 
 =================================== */
 
-document.querySelectorAll(
+document
 
-'a[href^="#"]'
+.querySelectorAll('a[href^="#"]')
 
-).forEach(link=>{
+.forEach(link=>{
 
 link.addEventListener(
 
 "click",
 
 event=>{
-
-event.preventDefault();
 
 const target=document.querySelector(
 
@@ -179,6 +181,8 @@ link.getAttribute("href")
 );
 
 if(target){
+
+event.preventDefault();
 
 target.scrollIntoView({
 
@@ -202,11 +206,13 @@ CONTACT FORM
 
 =================================== */
 
-const form=document.querySelector("form");
-
 if(form){
 
-form.addEventListener("submit",event=>{
+form.addEventListener(
+
+"submit",
+
+event=>{
 
 event.preventDefault();
 
@@ -230,33 +236,9 @@ form.reset();
 
 },3000);
 
-});
-
 }
 
-/* ===================================
-
-HERO INDICATOR
-
-=================================== */
-
-const scrollLink=document.querySelector(
-
-".scroll-link"
-
 );
-
-if(scrollLink){
-
-setInterval(()=>{
-
-scrollLink.classList.toggle(
-
-"pulse"
-
-);
-
-},1800);
 
 }
 
@@ -266,54 +248,20 @@ REDUCED MOTION
 
 =================================== */
 
-const prefersReducedMotion=
+if(
 
 window.matchMedia(
 
 "(prefers-reduced-motion: reduce)"
 
-);
+).matches
 
-if(prefersReducedMotion.matches){
+){
 
 document.documentElement.style.scrollBehavior="auto";
 
 observer.disconnect();
 
 }
-
-/* ===================================
-
-PARALLAX
-
-=================================== */
-
-const hero=document.querySelector(".hero");
-
-window.addEventListener(
-
-"scroll",
-
-()=>{
-
-if(hero){
-
-const offset=window.pageYOffset;
-
-hero.style.backgroundPositionY=
-
-offset*.35+"px";
-
-}
-
-},
-
-{
-
-passive:true
-
-}
-
-);
 
 });
