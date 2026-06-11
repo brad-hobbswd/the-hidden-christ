@@ -1,0 +1,637 @@
+/* =========================
+
+THE HIDDEN CHRIST
+
+Bradley Hobbs
+
+========================= */
+
+:root{
+
+--earth:#2d2926;
+--stone:#665d53;
+--sand:#b89b72;
+--linen:#f3efe7;
+--ivory:#faf8f4;
+--white:#ffffff;
+
+--text:#2d2926;
+--light-text:#f7f6f3;
+
+--max-width:760px;
+
+--transition:.6s ease;
+
+}
+
+/* =========================
+
+RESET
+
+========================= */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--ivory);
+
+color:var(--text);
+
+font-family:"Lora",serif;
+
+font-size:1.15rem;
+
+line-height:1.9;
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+
+IMAGES
+
+========================= */
+
+img{
+
+display:block;
+
+width:100%;
+
+height:auto;
+
+}
+
+/* =========================
+
+LINKS
+
+========================= */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+transition:var(--transition);
+
+}
+
+/* =========================
+
+HEADER
+
+========================= */
+
+.site-header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+padding:30px 8vw;
+
+background:rgba(250,248,244,.15);
+
+backdrop-filter:blur(12px);
+
+transition:var(--transition);
+
+}
+
+.navigation{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.logo{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:2rem;
+
+letter-spacing:2px;
+
+font-weight:600;
+
+}
+
+.navigation-links{
+
+display:flex;
+
+gap:40px;
+
+font-size:.95rem;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+}
+
+.navigation-links a:hover{
+
+opacity:.6;
+
+}
+
+/* =========================
+
+HERO
+
+========================= */
+
+.hero{
+
+height:100vh;
+
+background:url("images/hero.webp") center center/cover no-repeat;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+
+rgba(30,30,30,.35),
+
+rgba(30,30,30,.15),
+
+rgba(250,248,244,.15)
+
+);
+
+}
+
+.hero-overlay{
+
+position:relative;
+
+z-index:2;
+
+text-align:center;
+
+padding:40px;
+
+color:var(--light-text);
+
+max-width:800px;
+
+}
+
+.hero h1{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:5rem;
+
+font-weight:500;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+font-size:1.35rem;
+
+opacity:.95;
+
+margin-bottom:60px;
+
+}
+
+.scroll-link{
+
+display:inline-block;
+
+font-size:.95rem;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+padding-bottom:6px;
+
+border-bottom:1px solid rgba(255,255,255,.5);
+
+}
+
+.scroll-link:hover{
+
+opacity:.7;
+
+}
+
+/* =========================
+
+SECTIONS
+
+========================= */
+
+section{
+
+padding:140px 8vw;
+
+}
+
+.section-heading{
+
+text-align:center;
+
+margin-bottom:90px;
+
+}
+
+.section-heading span{
+
+display:block;
+
+text-transform:uppercase;
+
+letter-spacing:4px;
+
+font-size:.8rem;
+
+color:var(--stone);
+
+margin-bottom:18px;
+
+}
+
+.section-heading h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:3.4rem;
+
+font-weight:500;
+
+}
+
+/* =========================
+
+JOURNEY
+
+========================= */
+
+.chapter{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:90px;
+
+align-items:center;
+
+margin-bottom:180px;
+
+}
+
+.chapter:nth-child(even){
+
+direction:rtl;
+
+}
+
+.chapter:nth-child(even) .chapter-content{
+
+direction:ltr;
+
+}
+
+.chapter-image{
+
+overflow:hidden;
+
+}
+
+.chapter-image img{
+
+transition:1.5s ease;
+
+}
+
+.chapter:hover img{
+
+transform:scale(1.03);
+
+}
+
+.chapter-content{
+
+max-width:560px;
+
+}
+
+.chapter-content h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:2.5rem;
+
+font-weight:500;
+
+margin-bottom:35px;
+
+}
+
+.chapter-content p{
+
+margin-bottom:35px;
+
+}
+
+.chapter-content a{
+
+font-size:.9rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+border-bottom:1px solid var(--sand);
+
+padding-bottom:6px;
+
+}
+
+/* =========================
+
+BOOK
+
+========================= */
+
+.book-layout{
+
+display:grid;
+
+grid-template-columns:420px 1fr;
+
+gap:100px;
+
+align-items:center;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.book-cover{
+
+max-width:420px;
+
+}
+
+.book-text{
+
+max-width:600px;
+
+}
+
+.book-text a{
+
+display:inline-block;
+
+margin-top:40px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+border-bottom:1px solid var(--sand);
+
+padding-bottom:6px;
+
+}
+
+/* =========================
+
+AUTHOR
+
+========================= */
+
+.author-layout{
+
+display:grid;
+
+grid-template-columns:320px 1fr;
+
+gap:80px;
+
+align-items:center;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.author-layout img{
+
+border-radius:2px;
+
+}
+
+/* =========================
+
+CONTACT
+
+========================= */
+
+form{
+
+max-width:760px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+input,
+
+textarea{
+
+background:transparent;
+
+border:none;
+
+border-bottom:1px solid #cfc6b7;
+
+padding:18px 0;
+
+font-family:"Lora",serif;
+
+font-size:1rem;
+
+color:var(--text);
+
+outline:none;
+
+}
+
+button{
+
+width:220px;
+
+padding:18px;
+
+background:none;
+
+border:1px solid var(--sand);
+
+cursor:pointer;
+
+font-family:"Lora",serif;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+transition:var(--transition);
+
+}
+
+button:hover{
+
+background:var(--sand);
+
+color:white;
+
+}
+
+/* =========================
+
+FOOTER
+
+========================= */
+
+footer{
+
+padding:120px 40px;
+
+text-align:center;
+
+background:var(--earth);
+
+color:var(--light-text);
+
+}
+
+footer p{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:2.3rem;
+
+margin-bottom:20px;
+
+}
+
+footer span{
+
+opacity:.8;
+
+}
+
+/* =========================
+
+RESPONSIVE
+
+========================= */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:3.3rem;
+
+}
+
+.navigation-links{
+
+display:none;
+
+}
+
+.chapter,
+
+.book-layout,
+
+.author-layout{
+
+grid-template-columns:1fr;
+
+gap:60px;
+
+}
+
+.chapter:nth-child(even){
+
+direction:ltr;
+
+}
+
+.section-heading h2{
+
+font-size:2.5rem;
+
+}
+
+section{
+
+padding:100px 30px;
+
+}
+
+}
